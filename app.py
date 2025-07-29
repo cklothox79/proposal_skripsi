@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="Dokumentasi Skripsi Ferri Kusuma", layout="centered")
+st.set_page_config(page_title="Dokumentasi Skripsi Ferri Kusuma", layout="wide")
 
 st.title("📖 PENENTUAN NILAI AMBANG BATAS INDEKS STABILITAS ATMOSFER")
 st.subheader("Dengan Data METAR di Stasiun Meteorologi Juanda")
@@ -28,4 +28,4 @@ st.markdown("""
 """)
 
 st.write("---")
-st.info("Gunakan menu di sidebar untuk melihat rincian Tujuan Penelitian, Data & Metode, Hasil Analisis, Kesimpulan, dan Lampiran.")
+st.info("Gunakan menu di sidebar untuk menavigasi seluruh isi skripsi.")
