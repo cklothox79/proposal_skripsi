@@ -10,10 +10,8 @@ with tab1:
 
 with tab2:
     st.subheader("Lampiran")
-    with open("skripsi_dummy.pdf", "wb") as f:
-        f.write(b"Contoh file skripsi")
-
-    with open("skripsi_dummy.pdf", "rb") as file:
-        st.download_button("📥 Unduh Skripsi Lengkap", file, file_name="skripsi_ferri_kusuma.pdf")
-
-    st.info("Lampiran lainnya dapat ditambahkan di sini.")
+    try:
+        with open("docs/skripsi_dummy.pdf", "rb") as file:
+            st.download_button("📥 Unduh Skripsi Lengkap", file, file_name="skripsi_ferri_kusuma.pdf")
+    except:
+        st.info("Lampiran PDF akan ditambahkan di sini.")
