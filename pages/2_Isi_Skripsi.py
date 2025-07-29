@@ -9,7 +9,6 @@ try:
 
     tabs = st.tabs(["Bab I", "Bab II", "Bab III", "Bab IV", "Bab V"])
 
-    # Pembagian isi berdasarkan kata kunci Bab
     bab_isi = {"Bab I": [], "Bab II": [], "Bab III": [], "Bab IV": [], "Bab V": []}
     current_bab = "Bab I"
     for line in content:
@@ -31,4 +30,4 @@ try:
                 st.write(paragraf)
 
 except:
-    st.warning("File Bab_1_sampai_5.docx belum ditemukan.")
+    st.warning("⚠️ File Bab_1_sampai_5.docx belum ditemukan.")
