@@ -1,25 +1,34 @@
 import streamlit as st
+from docx import Document
 
 st.title("📚 Isi Skripsi")
 
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["Bab I", "Bab II", "Bab III", "Bab IV", "Bab V"])
+try:
+    doc = Document("docs/Bab_1_sampai_5.docx")
+    content = [para.text for para in doc.paragraphs if para.text.strip() != ""]
 
-with tab1:
-    st.subheader("Bab I - Pendahuluan")
-    st.write("Berisi latar belakang, rumusan masalah, tujuan, manfaat penelitian.")
+    tabs = st.tabs(["Bab I", "Bab II", "Bab III", "Bab IV", "Bab V"])
 
-with tab2:
-    st.subheader("Bab II - Dasar Teori")
-    st.write("Berisi teori-teori dan tinjauan pustaka.")
+    # Pembagian isi berdasarkan kata kunci Bab
+    bab_isi = {"Bab I": [], "Bab II": [], "Bab III": [], "Bab IV": [], "Bab V": []}
+    current_bab = "Bab I"
+    for line in content:
+        if "BAB I" in line.upper():
+            current_bab = "Bab I"
+        elif "BAB II" in line.upper():
+            current_bab = "Bab II"
+        elif "BAB III" in line.upper():
+            current_bab = "Bab III"
+        elif "BAB IV" in line.upper():
+            current_bab = "Bab IV"
+        elif "BAB V" in line.upper():
+            current_bab = "Bab V"
+        bab_isi[current_bab].append(line)
 
-with tab3:
-    st.subheader("Bab III - Metode Penelitian")
-    st.write("Berisi data, metode, prosedur penelitian, dan tahapan analisis.")
+    for tab, bab in zip(tabs, bab_isi.keys()):
+        with tab:
+            for paragraf in bab_isi[bab]:
+                st.write(paragraf)
 
-with tab4:
-    st.subheader("Bab IV - Hasil dan Pembahasan")
-    st.write("Berisi hasil analisis, tabel, grafik, pembahasan hasil penelitian.")
-
-with tab5:
-    st.subheader("Bab V - Kesimpulan dan Saran")
-    st.write("Berisi kesimpulan akhir dan saran penelitian.")
+except:
+    st.warning("File Bab_1_sampai_5.docx belum ditemukan.")
