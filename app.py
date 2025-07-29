@@ -2,6 +2,9 @@ import streamlit as st
 
 st.set_page_config(page_title="Dokumentasi Skripsi Ferri Kusuma", layout="wide")
 
+# Tampilkan logo di header
+st.image("assets/logo_stmkg.jpg", width=120)
+
 st.title("📖 PENENTUAN NILAI AMBANG BATAS INDEKS STABILITAS ATMOSFER")
 st.subheader("Dengan Data METAR di Stasiun Meteorologi Juanda")
 
